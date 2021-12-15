@@ -1,4 +1,4 @@
-package com.mycompany.bankapi;
+package com.mycompany.bankapi.models;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
