@@ -1,6 +1,6 @@
 package com.mycompany.bankapi.database;
 
-import com.mycompany.bankproject.models.Account;
+import com.mycompany.bankapi.models.Account;
 import java.util.ArrayList;
 import java.util.List;
 
