@@ -1,8 +1,8 @@
 package com.mycompany.bankapi.services;
 
-import com.mycompany.bankproject.models.Account;
-import com.mycompany.bankproject.models.Withdrawal;
-import static com.mycompany.bankproject.services.AccountServices.list;
+import com.mycompany.bankapi.models.Account;
+import com.mycompany.bankapi.models.Withdrawal;
+import com.mycompany.bankapi.services.AccountServices.list;
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,10 +1,10 @@
 package com.mycompany.bankapi.services;
 
-import com.mycompany.bankproject.models.Lodgements;
-import com.mycompany.bankproject.models.Transfer;
-import com.mycompany.bankclient.models.Withdrawals;
-import static com.mycompany.bankproject.services.WithdrawalServices.init;
-import static com.mycompany.bankproject.services.WithdrawalServices.list;
+import com.mycompany.bankapi.models.Lodgements;
+import com.mycompany.bankapi.models.Transfer;
+import com.mycompany.bankapi.models.Withdrawals;
+import static com.mycompany.bankapi.services.WithdrawalServices.init;
+import static com.mycompany.bankapi.services.WithdrawalServices.list;
 import java.util.ArrayList;
 import java.util.List;
 

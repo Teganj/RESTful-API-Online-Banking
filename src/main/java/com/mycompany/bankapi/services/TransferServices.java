@@ -1,6 +1,6 @@
 package com.mycompany.bankapi.services;
 
-import com.mycompany.bankproject.models.Transfer;
+import com.mycompany.bankapi.models.Transfer;
 import java.util.ArrayList;
 import java.util.List;
 

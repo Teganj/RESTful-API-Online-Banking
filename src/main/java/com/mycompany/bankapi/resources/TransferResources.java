@@ -1,7 +1,7 @@
 package com.mycompany.bankapi.resources;
 
-import com.mycompany.bankclient.models.Transfer;
-import com.mycompany.bankclient.services.TransferServices;
+import com.mycompany.bankapi.models.Transfer;
+import com.mycompany.bankapi.services.TransferServices;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

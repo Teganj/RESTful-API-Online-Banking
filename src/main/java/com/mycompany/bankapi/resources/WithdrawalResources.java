@@ -1,7 +1,7 @@
 package com.mycompany.bankapi.resources;
 
-import com.mycompany.bankclient.models.Withdrawal;
-import com.mycompany.bankclient.services.WithdrawalServices;
+import com.mycompany.bankapi.models.Withdrawal;
+import com.mycompany.bankapi.services.WithdrawalServices;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

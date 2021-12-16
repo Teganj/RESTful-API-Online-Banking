@@ -1,7 +1,7 @@
 package com.mycompany.bankapi.resources;
 
-import com.mycompany.bankclient.models.Lodgements;
-import com.mycompany.bankclient.services.LodgementServices;
+import com.mycompany.bankapi.models.Lodgements;
+import com.mycompany.bankapi.services.LodgementServices;
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
