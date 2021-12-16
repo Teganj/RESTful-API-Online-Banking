@@ -90,6 +90,34 @@ public class TransactionResources {
     }
      */
     //Gavin
+    
+     //Gavin
+      @GET
+      @Path("/{lodgement}")
+        
+    public Transaction LodgeFunds(
+            @QueryParam("account_id") int account_id, 
+            @QueryParam("customer_id") int customer_id,
+            @QueryParam("card_debited") String card_debited,
+            @QueryParam("amount") int amount) {
+            TransactionServices transactionServices = new TransactionServices();
+            return transactionServices.LodgeToAccount(account_id, customer_id , amount, card_debited);
+     }
+    
+    @POST
+    @Path("/lodgement/create")
+    public Response createLodgeFunds(
+            @QueryParam("From Account ID: ") int account_id,
+            @QueryParam("From Customer ID: ") int customer_id,
+            @QueryParam("To Card: ") String card_credited,
+            @QueryParam("For the Amount: ") int amount) {
+
+        String output = "getLodgementFunds is called, from this Account ID: "
+                + account_id + ", by this Customer ID : " + customer_id
+                + ", Sending Money to this card: " + card_credited
+                + amount;
+        return Response.status(200).entity(output).build();
+    }
     //   @GET
     //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
     // public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
