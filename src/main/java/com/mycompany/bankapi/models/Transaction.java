@@ -14,13 +14,13 @@ public class Transaction {
     private String transaction_type;
     private String card_credited;
     private String card_debited;
-    private double amount;
+    private int amount;
 
     public Transaction() {
 
     }
 
-    public Transaction(int customer_id, int account_id, String account_type, int transaction_id, String transaction_type, String card_credited, String card_debited, double amount) {
+    public Transaction(int customer_id, int account_id, String account_type, int transaction_id, String transaction_type, String card_credited, String card_debited, int amount) {
         this.customer_id = customer_id;
         this.account_id = account_id;
         this.account_type = account_type;
@@ -87,11 +87,11 @@ public class Transaction {
         this.card_debited = card_debited;
     }
 
-    public double getAmount() {
+    public int getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
+    public void setAmount(int amount) {
         this.amount = amount;
     }
 

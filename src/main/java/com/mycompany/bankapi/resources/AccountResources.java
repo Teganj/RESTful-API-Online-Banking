@@ -14,7 +14,7 @@ import javax.ws.rs.core.MediaType;
 /*
  * @author Tegan Jennings x18303941
  */
-@Path("/account")
+@Path("/customer/{customer_id}/account")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
@@ -30,7 +30,7 @@ public class AccountResources {
     }
 
     @GET
-    @Path("/customer/{customer_id}/account/all")
+    @Path("/all")
     public List<Account> getAccounts(@PathParam("customer_id") int c_id) {
         System.out.println("getAllAccountsforCustomer..." + c_id);
         return accountServices.getAllAccountsByCustomerID(c_id);

@@ -4,11 +4,13 @@ import com.mycompany.bankapi.models.Transaction;
 import com.mycompany.bankapi.services.TransactionServices;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.GET;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
-import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /*
  * @author Tegan Jennings x18303941
@@ -25,10 +27,34 @@ public class TransactionResources {
     //Tegan
     @GET
     @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{withdraw}")
-    public Transaction withdrawFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
+    public Transaction withdrawFunds(
+            @QueryParam("account_id") int account_id,
+            @QueryParam("customer_id") int customer_id,
+            @QueryParam("card_credited") String card_credited,
+            @QueryParam("card_debited") String card_debited,
+            @QueryParam("amount") int amount) {
         TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
+        return transactionServices.withdrawFromAccount(account_id, customer_id, card_credited, card_debited, amount);
     }
+
+    @GET
+    @Path("/withdraw")
+    public Transaction getWithdrawFunds(
+            @QueryParam("From Account ID: ") int account_id,
+            @QueryParam("From Customer ID: ") int customer_id,
+            @QueryParam("To Card: ") String card_credited,
+            @QueryParam("From Card: ") String card_debited,
+            @QueryParam("For the Amount: ") int amount) {
+
+        return Transaction
+                .status(200)
+                .entity("getWithdrawFunds is called, from this Account ID: "
+                        + account_id + ", by this Customer ID : " + customer_id
+                        + ", Sending Money to this card: " + card_credited
+                        + " from this card: " + card_debited + " For this amount: " + amount).build();
+
+    }
+
     /*
 
     @Path("/customers/{customer_id}/accounts/{account_id}/withdrawals")
@@ -171,15 +197,14 @@ public class TransactionResources {
         }
 
     }
-    */
-
+     */
     //Eugene
-    @GET
-    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{tranfer}")
-    public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
-        TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
-    }
+  //  @GET
+  //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{tranfer}")
+  //  public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
+   //     TransactionServices transactionServices = new TransactionServices();
+   //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
+   // }
 
     /*
     @Path("/customers/{customer_id}/accounts/{account_id}/transfers")
@@ -387,14 +412,13 @@ public class TransactionResources {
             }
         }
      */
-
     //Gavin
-    @GET
-    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
-    public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
-        TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
-    }
+ //   @GET
+  //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
+   // public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
+   //     TransactionServices transactionServices = new TransactionServices();
+   //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
+   // }
     /*
     @Path("/lodgements")
     public class LodgementResources {
