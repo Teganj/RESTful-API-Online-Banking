@@ -11,7 +11,7 @@ import java.util.List;
  * @author Eugene Omondi x18425924
  */
 public class TransactionServices {
-    /*
+    
 
     private List<Transaction> transactionlist = new TransactionDatabase().getTransactionDB();
 
@@ -69,5 +69,4 @@ public class TransactionServices {
         return matcheslist;
     }
 
-*/
 }
