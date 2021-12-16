@@ -1,0 +1,12 @@
+com\mycompany\bankapi\services\AccountServices.class
+com\mycompany\bankapi\resources\TransactionResources.class
+com\mycompany\bankapi\services\TransactionServices.class
+com\mycompany\bankapi\database\TransactionDatabase.class
+com\mycompany\bankapi\services\CustomerServices.class
+com\mycompany\bankapi\database\AccountDatabase.class
+com\mycompany\bankapi\models\Customer.class
+com\mycompany\bankapi\models\Account.class
+com\mycompany\bankapi\models\Transaction.class
+com\mycompany\bankapi\resources\AccountResources.class
+com\mycompany\bankapi\resources\CustomerResources.class
+com\mycompany\bankapi\database\CustomerDatabase.class

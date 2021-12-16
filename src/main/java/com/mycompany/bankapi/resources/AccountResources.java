@@ -23,7 +23,7 @@ public class AccountResources {
     private AccountServices accountServices = new AccountServices();
 
     @GET
-    @Path("/customer/{customer_id}/account/{account_id}")
+    @Path("/{account_id}")
     public Account getAccount(@PathParam("account_id") int a_id, @PathParam("customer_id") int c_id) {
         System.out.println("getAccountByID..." + a_id + " for CustomerID " + c_id);
         return accountServices.getAccountByID(c_id, a_id);
@@ -37,7 +37,7 @@ public class AccountResources {
     }
 
     @POST
-    @Path("/customer/{customer_id}/account/create")
+    @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Account addAccount(@PathParam("customer_id") int a_id, Account a) {

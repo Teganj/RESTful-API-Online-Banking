@@ -32,7 +32,7 @@ public class CustomerResources {
         return customerServices.getAllCustomers();
     }
     @GET
-    @Path("customer/{customerId}")
+    @Path("/{customerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Customer getCustomerJSON(@PathParam("customerId") int customer_id) {
         return customerServices.getCustomer(customer_id);
@@ -40,14 +40,14 @@ public class CustomerResources {
 
 
     @POST
-    @Path("customer/create")
+    @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Customer postCustomer(Customer c) {
         return customerServices.createCustomer(c);
     }
 
-    @Path("customer/{customer_id}/account")
+    @Path("/{customer_id}/account")
     public AccountResources getAccountResources() {
         System.out.println("Getting Accounts subresoruces...");
         return new AccountResources();

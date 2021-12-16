@@ -8,7 +8,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.GET;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
@@ -37,24 +39,31 @@ public class TransactionResources {
         return transactionServices.withdrawFromAccount(account_id, customer_id, card_credited, card_debited, amount);
     }
 
-    @GET
+    @POST
     @Path("/withdraw")
-    public Transaction getWithdrawFunds(
+    public Response postWithdrawFunds(
             @QueryParam("From Account ID: ") int account_id,
             @QueryParam("From Customer ID: ") int customer_id,
             @QueryParam("To Card: ") String card_credited,
             @QueryParam("From Card: ") String card_debited,
             @QueryParam("For the Amount: ") int amount) {
-
-        return Transaction
-                .status(200)
-                .entity("getWithdrawFunds is called, from this Account ID: "
+        
+        
+        String output = "getWithdrawFunds is called, from this Account ID: "
                         + account_id + ", by this Customer ID : " + customer_id
                         + ", Sending Money to this card: " + card_credited
-                        + " from this card: " + card_debited + " For this amount: " + amount).build();
-
+                        + " from this card: " + card_debited + " For this amount: " 
+                        + amount;
+        return Response.status(200).entity(output).build();
     }
-
+/*
+    @GET
+        @Path("/withdrawal")
+        @Produces(MediaType.APPLICATION_JSON)
+        public Transaction getWithdrawalJSON(@PathParam("transaction_id") int withdrawal_id) {
+            return (Transaction) transactionServices.getAllTransactions();
+        }
+    */
     /*
 
     @Path("/customers/{customer_id}/accounts/{account_id}/withdrawals")
