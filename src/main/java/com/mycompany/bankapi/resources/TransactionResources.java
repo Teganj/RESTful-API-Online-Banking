@@ -7,10 +7,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.GET;
-import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 
@@ -19,7 +17,7 @@ import javax.ws.rs.core.Response;
  * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
-@Path("/transaction")
+@Path("/customer/{customer_id}/account/{accounts_id}/transaction")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class TransactionResources {
@@ -28,7 +26,7 @@ public class TransactionResources {
 
     //Tegan
     @GET
-    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{withdraw}")
+    @Path("/{withdraw}")
     public Transaction withdrawFunds(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
@@ -63,7 +61,7 @@ public class TransactionResources {
         public Transaction getWithdrawalJSON(@PathParam("transaction_id") int withdrawal_id) {
             return (Transaction) transactionServices.getAllTransactions();
         }
-    */
+    
     /*
 
     @Path("/customers/{customer_id}/accounts/{account_id}/withdrawals")
