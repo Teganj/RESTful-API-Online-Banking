@@ -4,9 +4,10 @@ import com.mycompany.bankapi.models.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author HP
+/*
+ * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
+ * @author Eugene Omondi x18425924
  */
 public class TransactionDatabase {
         
@@ -16,12 +17,12 @@ public class TransactionDatabase {
     public TransactionDatabase() {
         if (init) {
 
-            Transaction lod1 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
-            Transaction lod2 = new Transaction ((1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
-            Transaction lod3 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
-            Transaction lod4 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
-            Transaction lod5 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
-            Transaction lod6 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB" 40.0, "10.10.1999", "10am", true);
+            Transaction lod1 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod2 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod3 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod4 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod5 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod6 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
 
             transactionDB.add(lod1);
             transactionDB.add(lod2);

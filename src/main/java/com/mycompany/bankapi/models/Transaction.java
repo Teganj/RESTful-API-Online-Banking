@@ -14,15 +14,12 @@ public class Transaction {
     private String card_credited;
     private String card_debited;
     private double amount;
-    private String date;
-    private String time;
-    private boolean verified;
-
+    
     public Transaction() {
 
     }
 
-    public Transaction(int customer_id, int account_id, int transaction_id, String transaction_type, String card_credited, String card_debited, double amount, String date, String time, boolean verified) {
+    public Transaction(int customer_id, int account_id, int transaction_id, String transaction_type, String card_credited, String card_debited, double amount) {
         this.customer_id = customer_id;
         this.account_id = account_id;
         this.transaction_id = transaction_id;
@@ -30,9 +27,6 @@ public class Transaction {
         this.card_credited = card_credited;
         this.card_debited = card_debited;
         this.amount = amount;
-        this.date = date;
-        this.time = time;
-        this.verified = verified;
     }
 
     public int getTransaction_id() {
@@ -90,32 +84,7 @@ public class Transaction {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public boolean isVerified() {
-        return verified;
-    }
-
-    public void setVerified(boolean verified) {
-        this.verified = verified;
-    }
-
     public String printLodgements() {
-        return "Bank Transaction{" + "Customer ID=" + customer_id + ", Account ID=" + account_id + ", Transaction ID=" + transaction_id + ", Card Credited=" + card_credited + ", Card Debited=" + card_debited + ", amount=" + amount + ", date=" + date + ", time=" + time + ", verified=" + verified + '}';
+        return "Bank Transaction{" + "Customer ID=" + customer_id + ", Account ID=" + account_id + ", Transaction ID=" + transaction_id + ", Card Credited=" + card_credited + ", Card Debited=" + card_debited + ", amount=" + amount +'}';
     }
 }
