@@ -1,8 +1,7 @@
 package com.mycompany.bankapi.resources;
 
-import com.mycompany.bankclient.models.Account;
-import com.mycompany.bankclient.services.AccountService;
-import com.mycompany.bankclient.services.AccountServices;
+import com.mycompany.bankapi.models.Account;
+import com.mycompany.bankapi.services.AccountServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -17,28 +16,31 @@ import javax.ws.rs.core.MediaType;
  * @author Tegan Jennings x18303941
  */
 @Path("/customers/{customer_id}/accounts")
+@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON)
 
 public class AccountResources {
-    
+
     private AccountServices accountServices = new AccountServices();
-	
+
     @GET
-    public List<Account> getComments(@PathParam("messageID") int m_id) {
-        System.out.println("getAllCommentsForMessage..."+m_id);
-	return AccountServices.getAllCommentsByMessage(m_id);
+    public List<Account> getAccounts(@PathParam("customer_id") int c_id) {
+        System.out.println("getAllAccountsforCustomer..." + c_id);
+        return accountServices.getAllAccountsByCustomerID(c_id);
     }
-	
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account postComment(@PathParam("messageID") int m_id, Accout a) {
-	return AccountServices.createComment(a, m_id);
+    public Account postAccount(@PathParam("account_id") int a_id, Account a) {
+        return accountServices.createAccount(a, a_id);
     }
+
     @GET
     @Path("/{account_id}")
-    public Account getAccount(@PathParam("account_id") int c_id,@PathParam("customer_id") int m_id ) {
-    	System.out.println("getAccountByID..."+c_id +" for CustomerID "+m_id);
-	return AccountServices.getAccountByID(m_id,c_id);
+    public Account getAccount(@PathParam("account_id") int a_id, @PathParam("customer_id") int c_id) {
+        System.out.println("getAccountByID..." + a_id + " for CustomerID " + c_id);
+        return accountServices.getAccountByID(c_id, a_id);
     }
 
 }

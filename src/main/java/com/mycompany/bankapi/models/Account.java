@@ -1,5 +1,7 @@
 package com.mycompany.bankapi.models;
 
+import java.util.List;
+
 /*
  * @author Tegan Jennings x18303941
  */
@@ -21,6 +23,7 @@ public class Account {
         this.account_number = account_number;
         this.current_balance = current_balance;
     }
+
     public int getAccount() {
         return account_id;
     }
@@ -28,6 +31,7 @@ public class Account {
     public void setAccount(int id) {
         this.account_id = account_id;
     }
+
     public int getAccountId() {
         return account_id;
     }
@@ -67,7 +71,21 @@ public class Account {
     public void setCurrentBalance(double current_balance) {
         this.current_balance = current_balance;
     }
+/*
+    public List<Customer> getCustomers() {
+        return customers;
+    }
 
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public void addAccountToCustomer(Customer customer) {
+        (this.customers).add(customer);
+        System.out.println("add a new account to Customer");
+    }
+
+*/
     public String printAccount() {
         return "BankAccount{" + "account_id=" + account_id + ", sort_code=" + sort_code + ", account_number=" + account_number + ", current_balance=" + current_balance + ",, customer_id=" + customer_id + '}';
     }

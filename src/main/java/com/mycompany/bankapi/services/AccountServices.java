@@ -11,27 +11,27 @@ public class AccountServices {
 
     private List<Account> list = new AccountDatabase().getAllAccounts();
     
-    public List<Account> getAllAccountsByCustomerID(int MessageID) {
-        return list.get(account_id-1).getAccountId();
+    public List<Account> getAllAccountsByCustomerID(int v) {
+        return list.get(CustomerID-1).getAccounts();
     }
-    
+
     public Account getAccountByID(int account_id, int customer_id) {
-        return list.get(account_id-1).getAccountId().get(customer_id-1);
+        return list.get(account_id-1).getAccounts().get(customer_id-1);
     }
 
     public List<Account> getAllAccounts() {
-        return accountslist;
+        return list;
     }
     
-    public Account createAccount(Account a, int m_id){
+    public Account createAccount(Account a, int a_id){
     
         
-        Account newAccount = list.get(m_id-1);
-        a.setId(newAccount.getAccounts().size() + 1);
-	newAccount.addCommentToMsg(a);
+        Account newAccount = list.get(a_id-1);
+        a.setAccountId(newAccount.getAccount().size() + 1);
+	newAccount.addAccountToCustomer(a);
         
         
-	System.out.println("201 - resource created with path: /messages/" + String.valueOf(newAccount.getId())+"/comments/"+String.valueOf(a.getId()));
+	System.out.println("201 - resource created with path: /messages/" + String.valueOf(newAccount.getAccountId())+"/comments/"+String.valueOf(a.getAccountId()));
         System.out.println("Updated Message:"+a.printAccount());
 	return a;
     }
