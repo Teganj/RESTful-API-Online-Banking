@@ -34,8 +34,8 @@ public class CustomerResources {
     @GET
     @Path("customer/{customerId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Customer getCustomerJSON(@PathParam("customerId") int id) {
-        return customerServices.getCustomer(id);
+    public Customer getCustomerJSON(@PathParam("customerId") int customer_id) {
+        return customerServices.getCustomer(customer_id);
     }
 
 

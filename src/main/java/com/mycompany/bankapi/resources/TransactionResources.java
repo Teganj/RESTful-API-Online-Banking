@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
  * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
-@Path("/customers/{customer_id}/accounts/{accounts_id}/transaction")
+@Path("/transaction")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class TransactionResources {
@@ -24,7 +24,7 @@ public class TransactionResources {
 
     //Tegan
     @GET
-    @Path("/withdraw")
+    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/withdraw")
     public Transaction withdrawFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
@@ -175,7 +175,7 @@ public class TransactionResources {
 
     //Eugene
     @GET
-    @Path("/tranfer")
+    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/tranfer")
     public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
@@ -390,7 +390,7 @@ public class TransactionResources {
 
     //Gavin
     @GET
-    @Path("/lodgement")
+    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/lodgement")
     public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
