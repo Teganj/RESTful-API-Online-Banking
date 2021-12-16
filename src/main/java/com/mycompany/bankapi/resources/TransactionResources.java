@@ -53,13 +53,6 @@ public class TransactionResources {
                 + amount;
         return Response.status(200).entity(output).build();
     }
-    /*
-        @GET
-        @Path("/{withdrawal_id}")
-        @Produces(MediaType.APPLICATION_JSON)
-        public Withdrawal getWithdrawalJSON(@PathParam("withdrawal_id") int withdrawal_id) {
-            return (Withdrawal) withdrawalsServices.getAllWithdrawals();
-        }
 
     //Eugene
     
