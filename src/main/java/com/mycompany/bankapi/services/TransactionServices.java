@@ -22,13 +22,11 @@ public class TransactionServices {
     
     
     //Eugene
-    //  public Transaction transerFromAccount(int account_id, int customer_id, double amount) {
-    //     Transaction transactionWithdrawal;
-
-    //  transactionWithdrawal = new TransactionServices(1, 123, 40.0);
-    //    transService.addToTransaction(transactionWithdrawal);
-    //   return transactionWithdrawal;
+     //public Transaction transerFromAccount(int account_id, int customer_id, String card_debited, int amount)
+      //  return transactionlist.get(account_id - 1);
+    }
     //  }
+
     //Gavin
     // public Transaction LodgeToAccount(int account_id, int customer_id, double amount) {
     //    Transaction transactionWithdrawal;
