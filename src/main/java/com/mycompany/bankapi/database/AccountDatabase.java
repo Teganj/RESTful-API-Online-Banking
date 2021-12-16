@@ -15,12 +15,12 @@ public class AccountDatabase {
     public AccountDatabase() {
         if (init) {
 
-            Account acc1 = new Account("", "", 1, 123, "Credit", "dfg575", "wd1253", 40.0);
-            Account acc2 = new Account("", "", 2, 123, "Credit", "dfg575", "wd1253", 40.0);
-            Account acc3 = new Account("", "", 3, 123, "Credit", "dfg575", "wd1253", 40.0);
-            Account acc4 = new Account("", "", 4, 123, "Credit", "dfg575", "wd1253", 40.0);
-            Account acc5 = new Account("", "", 5, 123, "Credit", "dfg575", "wd1253", 40.0);
-            Account acc6 = new Account("", "", 6, 123, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc1 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc2 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc3 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc4 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc5 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
+            Account acc6 = new Account("", "", 1, 1, "Credit", "dfg575", "wd1253", 40.0);
 
             accountDB.add(acc1);
             accountDB.add(acc2);

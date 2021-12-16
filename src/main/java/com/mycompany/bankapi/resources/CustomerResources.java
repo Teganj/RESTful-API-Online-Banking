@@ -40,7 +40,7 @@ public class CustomerResources {
 
 
     @POST
-    @Path("customer/{customerId}")
+    @Path("customer/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Customer postCustomer(Customer c) {

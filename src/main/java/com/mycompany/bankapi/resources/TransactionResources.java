@@ -24,7 +24,7 @@ public class TransactionResources {
 
     //Tegan
     @GET
-    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/withdraw")
+    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{withdraw}")
     public Transaction withdrawFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
@@ -175,7 +175,7 @@ public class TransactionResources {
 
     //Eugene
     @GET
-    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/tranfer")
+    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{tranfer}")
     public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
@@ -390,7 +390,7 @@ public class TransactionResources {
 
     //Gavin
     @GET
-    @Path("/customers/{customer_id}/accounts/{accounts_id}/transaction/lodgement")
+    @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
     public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
         TransactionServices transactionServices = new TransactionServices();
         return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
