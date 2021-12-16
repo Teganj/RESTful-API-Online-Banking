@@ -17,12 +17,12 @@ public class TransactionDatabase {
     public TransactionDatabase() {
         if (init) {
 
-            Transaction lod1 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
-            Transaction lod2 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
-            Transaction lod3 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
-            Transaction lod4 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
-            Transaction lod5 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
-            Transaction lod6 = new Transaction (1, 123, 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod1 = new Transaction (1, 123, "Credit", 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod2 = new Transaction (1, 123, "Credit", 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod3 = new Transaction (1, 123,  "Credit",1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod4 = new Transaction (1, 123,  "Credit",1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod5 = new Transaction (1, 123, "Credit", 1, "Withdrawal", "AIB", "AIB", 40.0);
+            Transaction lod6 = new Transaction (1, 123, "Credit", 1, "Withdrawal", "AIB", "AIB", 40.0);
 
             transactionDB.add(lod1);
             transactionDB.add(lod2);
