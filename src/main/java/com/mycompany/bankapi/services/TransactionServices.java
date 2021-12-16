@@ -28,6 +28,10 @@ public class TransactionServices {
     //  }
 
     //Gavin
+
+public Transaction LodgeToAccount(int account_id, int customer_id, double amount, String card_debited) {
+        return transactionlist.get(account_id - 1);
+     }
     // public Transaction LodgeToAccount(int account_id, int customer_id, double amount) {
     //    Transaction transactionWithdrawal;
     //    transactionWithdrawal = new TransactionServices(1, 123, 40.0);
