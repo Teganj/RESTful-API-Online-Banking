@@ -1,5 +1,8 @@
 package com.mycompany.bankapi.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * @author Eugene Omondi x18425924
  */
@@ -12,13 +15,14 @@ public class Customer {
     private String customer_email;
     private String customer_password;
     private String customer_cpassword;
+    private List<Account> accounts = new ArrayList<>();
     
     
 
     public Customer() {
     }
 
-    public Customer (String customer, int customer_id, String customer_name, String customer_address, String customer_email, String customer_password,  String customer_cpassword) {
+    public Customer (String customer, int customer_id, String customer_name, String customer_address, String customer_email, String customer_password,  String customer_cpassword, List<Account> accounts) {
         this.customer = customer;
         this.customer_id = customer_id;        
         this.customer_name = customer_name;
@@ -26,6 +30,7 @@ public class Customer {
         this.customer_email = customer_email;
         this.customer_password = customer_password;
         this.customer_cpassword = customer_cpassword;
+        this.accounts = accounts;
     }
 
     public String getCustomer() {
@@ -83,21 +88,21 @@ public class Customer {
     public void setCurrentBalance(String customer_cpassword) {
         this.customer_cpassword = customer_cpassword;
     }
-/*
-    public List<Customer> getCustomers() {
-        return customers;
+
+    public List<Account> getAccounts() {
+        return accounts;
     }
 
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
     }
 
-    public void addAccountToCustomer(Customer customer) {
-        (this.customers).add(customer);
+    public void addAccountToCustomer(Account account) {
+        (this.accounts).add(account);
         System.out.println("add a new account to Customer");
     }
 
-*/
+
     public String printCustomer() {
         return "BankAccount{" + "customer_id=" + customer_id + ", customer_name=" + customer_name + ", customer_address=" + customer_address + ", customer_email=" + customer_email + ", customer_password=" + customer_password  + ",, customer_cpassword=" + customer_cpassword + '}';
     }

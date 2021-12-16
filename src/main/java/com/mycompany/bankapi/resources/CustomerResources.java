@@ -25,25 +25,16 @@ public class CustomerResources {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-//@Produces(MediaType.APPLICATION_XML)
-    public List<Customer> getFilteredMessages(@QueryParam("Customer") String message, @QueryParam("author") String author) {
-        if ((message != null) || (author != null)) {
-            return customerServices.getSearchMessages(message, author);
+    public List<Customer> getFilteredCustomers(@QueryParam("customer") String customer, @QueryParam("account") String account) {
+        if ((customer != null) || (account != null)) {
+            return customerServices.getSearchCustomer(customer, account);
         }
         return customerServices.getAllCustomers();
     }
-
-    @GET
-    @Path("/{customerId}")
-    @Produces(MediaType.APPLICATION_XML)
-    public Customer getMessageXML(@PathParam("customerId") int id) {
-        return customerServices.getCustomer(id);
-    }
-
     @GET
     @Path("/{customerId}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Customer getMessageJSON(@PathParam("customerId") int id) {
+    public Customer getCustomerJSON(@PathParam("customerId") int id) {
         return customerServices.getCustomer(id);
     }
 
@@ -51,14 +42,14 @@ public class CustomerResources {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Customer postMessage(Customer c) {
-        return customerServices.createMessage(c);
+    public Customer postCustomer(Customer c) {
+        return customerServices.createCustomer(c);
     }
 
-    @Path("/{messageID}/Customer")
-    public CustomerResources getCustomerResources() {
-        System.out.println("Getting customer subresoruces...");
-        return new CustomerResources();
+    @Path("/{customer_id}/account")
+    public AccountResources getAccountResources() {
+        System.out.println("Getting Accounts subresoruces...");
+        return new AccountResources();
     }
 
 }

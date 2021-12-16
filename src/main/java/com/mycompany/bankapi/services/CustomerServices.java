@@ -20,15 +20,15 @@ public class CustomerServices {
         return list.get(customer_id - 1);
     }
 
-    public Customer createMessage(Customer c) {
+    public Customer createCustomer(Customer c) {
         c.setCustomerId(list.size() + 1);
         list.add(c);
         System.out.println("201 - resource created with path: /customers/" + String.valueOf(c.getCustomerId()));
-        System.out.println("Updated Message:" + c.printCustomer());
+        System.out.println("Updated Customer:" + c.printCustomer());
         return c;
     }
 
-    public List<Customer> getSearchMessages(String account, String customer) {
+    public List<Customer> getSearchCustomer(String account, String customer) {
         List<Customer> matcheslist = new ArrayList<>();
 
         for (Customer q : getAllCustomers()) {

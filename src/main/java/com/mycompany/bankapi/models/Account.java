@@ -83,21 +83,7 @@ public class Account {
     public void setCurrentBalance(double current_balance) {
         this.current_balance = current_balance;
     }
-/*
-    public List<Customer> getCustomers() {
-        return customers;
-    }
-
-    public void setCustomers(List<Customer> customers) {
-        this.customers = customers;
-    }
-
-    public void addAccountToCustomer(Customer customer) {
-        (this.customers).add(customer);
-        System.out.println("add a new account to Customer");
-    }
-
-*/
+    
     public String printAccount() {
         return "BankAccount{" + "account_id=" + account_id + ", sort_code=" + sort_code + ", account_number=" + account_number + ", current_balance=" + current_balance + ",, customer_id=" + customer_id + '}';
     }

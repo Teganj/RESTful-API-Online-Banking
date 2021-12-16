@@ -15,51 +15,32 @@ import javax.ws.rs.core.MediaType;
 /*
  * @author Tegan Jennings x18303941
  */
-@Path("/accounts")
+@Path("/customers/{customer_id}/accounts")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
 public class AccountResources {
 
-    AccountServices accountServices = new AccountServices();
+    private AccountServices accountServices = new AccountServices();
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-//@Produces(MediaType.APPLICATION_XML)
-    public List<Account> getFilteredMessages(@QueryParam("account") String message, @QueryParam("author") String author) {
-        if ((message != null) || (author != null)) {
-            return accountServices.getSearchMessages(message, author);
-        }
-        return accountServices.getAllAccounts();
+    public List<Account> getAccounts(@PathParam("customer_id") int c_id) {
+        System.out.println("getAllAccountsforCustomer..." + c_id);
+        return accountServices.getAllAccountsByCustomerID(c_id);
     }
-
-    @GET
-    @Path("/{accountId}")
-    @Produces(MediaType.APPLICATION_XML)
-    public Account getMessageXML(@PathParam("accountId") int id) {
-        return accountServices.getAccount(id);
-    }
-
-    @GET
-    @Path("/{accountId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Account getMessageJSON(@PathParam("accountId") int id) {
-        return accountServices.getAccount(id);
-    }
-
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account postMessage(Account m) {
-        return accountServices.createMessage(m);
+    public Account postAccount(@PathParam("account_id") int a_id, Account a) {
+        return accountServices.createAccount(a, a_id);
     }
 
-    @Path("/{messageID}/account")
-    public CustomerResources getCustomerResources() {
-        System.out.println("Getting customer subresoruces...");
-        return new CustomerResources();
+    @GET
+    @Path("/{account_id}")
+    public Account getAccount(@PathParam("account_id") int a_id, @PathParam("customer_id") int c_id) {
+        System.out.println("getAccountByID..." + a_id + " for CustomerID " + c_id);
+        return accountServices.getAccountByID(c_id, a_id);
     }
 
 }
-

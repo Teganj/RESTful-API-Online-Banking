@@ -1,5 +1,6 @@
 package com.mycompany.bankapi.database;
 
+import static com.mycompany.bankapi.database.AccountDatabase.accountDB;
 import com.mycompany.bankapi.models.Customer;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +17,12 @@ public class CustomerDatabase {
     public CustomerDatabase() {
         if (init) {
 
-            Customer cus1 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
-            Customer cus2 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
-            Customer cus3 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
-            Customer cus4 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
-            Customer cus5 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
-            Customer cus6 = new Customer("", 1, "name", "address", "email", "PASS","CPASS");
+            Customer cus1 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
+            Customer cus2 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
+            Customer cus3 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
+            Customer cus4 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
+            Customer cus5 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
+            Customer cus6 = new Customer("", 1, "name", "address", "email", "PASS","CPASS", accountDB);
 
             customerDB.add(cus1);
             customerDB.add(cus2);

@@ -1,7 +1,9 @@
 package com.mycompany.bankapi.services;
 
 import com.mycompany.bankapi.models.Account;
+import com.mycompany.bankapi.models.Customer;
 import com.mycompany.bankapi.database.AccountDatabase;
+import com.mycompany.bankapi.database.CustomerDatabase;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,35 +12,29 @@ import java.util.List;
  */
 public class AccountServices {
 
-    AccountDatabase db = new AccountDatabase();
-    private List<Account> list = db.getAccountDB();
+    private List<Account> accountslist = new AccountDatabase().getAccountDB();
+    private List<Customer> customerslist = new CustomerDatabase().getCustomerDB();
+
+    public List<Account> getAllAccountsByCustomerID(int CustomerID) {
+        return customerslist.get(CustomerID - 1).getAccounts();
+    }
+
+    public Account getAccountByID(int AccountID, int CustomerID) {
+        return customerslist.get(AccountID - 1).getAccounts().get(CustomerID - 1);
+    }
 
     public List<Account> getAllAccounts() {
-        return list;
+        return accountslist;
     }
 
-    public Account getAccount(int account_id) {
-        return list.get(account_id - 1);
+    public Account createAccount(Account a, int a_id) {
+
+        Customer newCustomer = customerslist.get(a_id - 1);
+        a.setAccountId(newCustomer.getAccounts().size() + 1);
+        newCustomer.addAccountToCustomer(a);
+
+        System.out.println("201 - resource created with path: /customers/" + String.valueOf(newCustomer.getCustomerId()) + "/comments/" + String.valueOf(a.getAccountId()));
+        System.out.println("Updated Message:" + a.printAccount());
+        return a;
     }
-
-    public Account createMessage(Account m) {
-        m.setAccountId(list.size() + 1);
-        list.add(m);
-        System.out.println("201 - resource created with path: /accounts/" + String.valueOf(m.getAccountId()));
-        System.out.println("Updated Message:" + m.printAccount());
-        return m;
-    }
-
-    public List<Account> getSearchMessages(String account, String customer) {
-        List<Account> matcheslist = new ArrayList<>();
-
-        for (Account q : getAllAccounts()) {
-            if ((account == null || q.getAccount().equals(account))
-                    && (customer == null || q.getCustomer().equals(customer))) {
-                matcheslist.add(q);
-            }
-        }
-        return matcheslist;
-    }
-
 }
