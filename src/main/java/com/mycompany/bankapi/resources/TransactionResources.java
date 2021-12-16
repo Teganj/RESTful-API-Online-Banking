@@ -38,39 +38,22 @@ public class TransactionResources {
     }
 
     @POST
-    @Path("/withdraw")
-    public Response postWithdrawFunds(
+    @Path("/withdraw/create")
+    public Response createtWithdrawFunds(
             @QueryParam("From Account ID: ") int account_id,
             @QueryParam("From Customer ID: ") int customer_id,
             @QueryParam("To Card: ") String card_credited,
             @QueryParam("From Card: ") String card_debited,
             @QueryParam("For the Amount: ") int amount) {
-        
-        
+
         String output = "getWithdrawFunds is called, from this Account ID: "
-                        + account_id + ", by this Customer ID : " + customer_id
-                        + ", Sending Money to this card: " + card_credited
-                        + " from this card: " + card_debited + " For this amount: " 
-                        + amount;
+                + account_id + ", by this Customer ID : " + customer_id
+                + ", Sending Money to this card: " + card_credited
+                + " from this card: " + card_debited + " For this amount: "
+                + amount;
         return Response.status(200).entity(output).build();
     }
-/*
-    @GET
-        @Path("/withdrawal")
-        @Produces(MediaType.APPLICATION_JSON)
-        public Transaction getWithdrawalJSON(@PathParam("transaction_id") int withdrawal_id) {
-            return (Transaction) transactionServices.getAllTransactions();
-        }
-    
     /*
-
-    @Path("/customers/{customer_id}/accounts/{account_id}/withdrawals")
-    public class WithdrawalResources {
-
-        WithdrawalServices withdrawalsServices = new WithdrawalServices();
-        Withdrawal withdrawal = new Withdrawal();
-        EntityManager entityManager;
-
         @GET
         @Path("/{withdrawal_id}")
         @Produces(MediaType.APPLICATION_JSON)
@@ -78,140 +61,13 @@ public class TransactionResources {
             return (Withdrawal) withdrawalsServices.getAllWithdrawals();
         }
 
-        @POST
-        @Consumes(MediaType.APPLICATION_JSON)
-        @Produces(MediaType.APPLICATION_JSON)
-        public Withdrawal postWithdrawal(Withdrawal w) {
-            return withdrawalsServices.createWithdrawal(w);
-        }
-
-        @GET
-        @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-        @Path("{withdrawal_id}")
-        public Withdrawal getWithdrawal(@PathParam("withdrawal_id") int withdrawal_id) {
-            Withdrawal test = entityManager.find(Withdrawal.class, withdrawal_id);
-            if (test == null) {
-                throw new NotFoundException();
-            }
-            return test;
-        }
-
-        @GET
-        @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-        @Path("/search")
-        public Withdrawal getSearchWithdrawal(@Context UriInfo info) {
-            int withdrawal_id = Integer.parseInt(info.getQueryParameters().getFirst("withdrawal_id"));
-
-            Withdrawal test = entityManager.find(Withdrawal.class, withdrawal_id);
-            if (test == null) {
-                throw new NotFoundException();
-            }
-            return test;
-        }
-
-        @GET
-        @Path("/save")
-        @Consumes(MediaType.APPLICATION_JSON)
-        @Produces({MediaType.APPLICATION_JSON})
-        public Response save(@Context UriInfo info) {
-
-            int customer_id = Integer.parseInt(info.getQueryParameters().getFirst("customer_id"));
-            int account_id = Integer.parseInt(info.getQueryParameters().getFirst("account_id"));
-            int transaction_id = 0;
-
-            String to_card = info.getQueryParameters().getFirst("to_card");
-            String card_encryption = "";
-            for (int i = to_card.length() - 1; i >= 0; i--) {
-                card_encryption = card_encryption + to_card.charAt(i);
-            }
-
-            byte[] array = new byte[7];
-            new Random().nextBytes(array);
-            String transaction_ref = new String(array, Charset.forName("UTF-8"));
-
-            double amount = Double.parseDouble(info.getQueryParameters().getFirst("amount"));
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            DateFormat timeFormat = new SimpleDateFormat("HH:mm:ss");
-            Date currDate = new Date();
-            String date = dateFormat.format(currDate);
-            String time = timeFormat.format(currDate);
-            boolean verified = false;
-
-            withdrawal.setCustomer_id(customer_id);
-            withdrawal.setAccount_id(account_id);
-            withdrawal.setTransaction_id(transaction_id);
-            withdrawal.setTo_card(to_card);
-            withdrawal.setCard_encryption(card_encryption);
-            withdrawal.setTransaction_ref(transaction_ref);
-            withdrawal.setAmount(amount);
-            withdrawal.setDate(date);
-            withdrawal.setTime(time);
-            withdrawal.setVerified(verified);
-
-            System.out.println(withdrawal);
-            entityManager.getTransaction().begin();
-            entityManager.persist(withdrawal);
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            return Response.status(200).entity(withdrawal).build();
-        }
-
-        @GET
-        @Path("/update")
-        @Consumes(MediaType.APPLICATION_JSON)
-        @Produces({MediaType.APPLICATION_JSON})
-        public Response update(@Context UriInfo info) {
-
-            int withdrawal_id = Integer.parseInt(info.getQueryParameters().getFirst("withdrawal_id"));
-            int customer_id = Integer.parseInt(info.getQueryParameters().getFirst("customer_id"));
-            int account_id = Integer.parseInt(info.getQueryParameters().getFirst("account_id"));
-            double amount = Double.parseDouble(info.getQueryParameters().getFirst("amount"));
-            int transaction_id = 0;
-
-            Withdrawal removedWithdrawal = entityManager.find(Withdrawal.class, withdrawal_id);
-            if (removedWithdrawal == null) {
-                throw new NotFoundException();
-            }
-
-            String to_card = removedWithdrawal.getTo_card();
-            String card_encryption = removedWithdrawal.getCard_encryption();
-            String transaction_ref = removedWithdrawal.getTransaction_ref();
-
-            String date = removedWithdrawal.getDate();
-            String time = removedWithdrawal.getTime();
-            boolean verified = removedWithdrawal.isVerified();
-
-            Withdrawal newWithdrawal = removedWithdrawal;
-
-            newWithdrawal.setCustomer_id(customer_id);
-            newWithdrawal.setAccount_id(account_id);
-            newWithdrawal.setTransaction_id(transaction_id);
-            newWithdrawal.setTo_card(to_card);
-            newWithdrawal.setCard_encryption(card_encryption);
-            newWithdrawal.setTransaction_ref(transaction_ref);
-            newWithdrawal.setAmount(amount);
-            newWithdrawal.setDate(date);
-            newWithdrawal.setTime(time);
-            newWithdrawal.setVerified(verified);
-
-            entityManager.getTransaction().begin();
-            entityManager.remove(removedWithdrawal);
-            entityManager.persist(newWithdrawal);
-            entityManager.getTransaction().commit();
-            entityManager.close();
-            String message = "Record updated";
-            return Response.status(200).entity(message).build();
-        }
-
-    }
-     */
     //Eugene
-  //  @GET
-  //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{tranfer}")
-  //  public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
-   //     TransactionServices transactionServices = new TransactionServices();
-   //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
-   // }
+    //  @GET
+    //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/{tranfer}")
+    //  public Transaction transferFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
+    //     TransactionServices transactionServices = new TransactionServices();
+    //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
+    // }
 
     /*
     @Path("/customers/{customer_id}/accounts/{account_id}/transfers")
@@ -420,12 +276,12 @@ public class TransactionResources {
         }
      */
     //Gavin
- //   @GET
-  //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
-   // public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
-   //     TransactionServices transactionServices = new TransactionServices();
-   //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
-   // }
+    //   @GET
+    //  @Path("/customer/{customer_id}/account/{accounts_id}/transaction/lodgement/{lodgement_id}")
+    // public Transaction LodgeFunds(@QueryParam("account_id") int account_id, @QueryParam("customer_id") int customer_id, @QueryParam("amount") double amount) {
+    //     TransactionServices transactionServices = new TransactionServices();
+    //     return transactionServices.withdrawFromAccount(account_id, customer_id, amount);
+    // }
     /*
     @Path("/lodgements")
     public class LodgementResources {
@@ -606,5 +462,4 @@ public class TransactionResources {
             return Response.status(200).entity(message).build();
         }
      */
-
 }
