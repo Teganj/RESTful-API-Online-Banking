@@ -7,6 +7,8 @@ import java.util.List;
  */
 public class Account {
 
+    private String account;
+    private String customer;
     private int account_id;
     private int customer_id;
     private String sort_code;
@@ -16,7 +18,9 @@ public class Account {
     public Account() {
     }
 
-    public Account(int id, int customer_id, String sort_code, String account_number, double current_balance) {
+    public Account(String account, String customer, int id, int customer_id, String sort_code, String account_number, double current_balance) {
+        this.account = account;
+        this.customer = customer;        
         this.account_id = account_id;
         this.customer_id = customer_id;
         this.sort_code = sort_code;
@@ -24,19 +28,27 @@ public class Account {
         this.current_balance = current_balance;
     }
 
-    public int getAccount() {
-        return account_id;
+    public String getAccount() {
+        return account;
     }
 
-    public void setAccount(int id) {
-        this.account_id = account_id;
+    public void setAccount(String account) {
+        this.account = account;
+    }
+    
+     public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
     public int getAccountId() {
         return account_id;
     }
 
-    public void setAccountId(int id) {
+    public void setAccountId(int account_id) {
         this.account_id = account_id;
     }
 
