@@ -4,7 +4,6 @@ import com.mycompany.bankapi.models.Account;
 import com.mycompany.bankapi.models.Customer;
 import com.mycompany.bankapi.database.AccountDatabase;
 import com.mycompany.bankapi.database.CustomerDatabase;
-import java.util.ArrayList;
 import java.util.List;
 
 /*

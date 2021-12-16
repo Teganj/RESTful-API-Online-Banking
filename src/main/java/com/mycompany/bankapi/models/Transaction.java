@@ -95,7 +95,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String printLodgements() {
+    public String printTransaction() {
         return "Bank Transaction{" + "Customer ID=" + customer_id + ", Account ID=" + account_id + ", Transaction ID=" + transaction_id + ", Card Credited=" + card_credited + ", Card Debited=" + card_debited + ", amount=" + amount + '}';
     }
 }

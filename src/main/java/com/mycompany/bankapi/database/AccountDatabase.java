@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * @author Gavin Corr x18382836
  * @author Tegan Jennings x18303941
- * @author Eugene Omondi x18425924
- */
+*/
 public class AccountDatabase {
 
     public static List<Account> accountDB = new ArrayList<>();

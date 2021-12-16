@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 /*
  * @author Eugene Omondi x18425924
  */
-@Path("/Customers")
+@Path("/customer")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 
@@ -32,7 +32,7 @@ public class CustomerResources {
         return customerServices.getAllCustomers();
     }
     @GET
-    @Path("/{customerId}")
+    @Path("customer/{customerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Customer getCustomerJSON(@PathParam("customerId") int id) {
         return customerServices.getCustomer(id);
@@ -40,13 +40,14 @@ public class CustomerResources {
 
 
     @POST
+    @Path("customer/{customerId}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Customer postCustomer(Customer c) {
         return customerServices.createCustomer(c);
     }
 
-    @Path("/{customer_id}/account")
+    @Path("customer/{customer_id}/account")
     public AccountResources getAccountResources() {
         System.out.println("Getting Accounts subresoruces...");
         return new AccountResources();
