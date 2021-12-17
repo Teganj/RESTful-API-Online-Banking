@@ -20,7 +20,7 @@ public class CustomerServices {
     }
 
    
-        public Customer getCustomer(Customer customer) {
+        public Customer getCustomer(int customer_id, Customer customer) {
         customer.setCustomerId(customerslist.size() + 1);
         customerslist.add(customer);
         System.out.println("201 - resource created with path: /customer/" + String.valueOf(customer.getCustomerId()));
