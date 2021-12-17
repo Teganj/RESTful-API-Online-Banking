@@ -38,7 +38,7 @@ public class TransactionServices {
     }
 
     public Transaction transferFromAccount(int account_id, int customer_id,
-            double amount) {
+            String card_debited, double amount) {
         TransactionServices transactionServices = new TransactionServices();
         AccountServices accountServices = new AccountServices();
         Transaction transaction;

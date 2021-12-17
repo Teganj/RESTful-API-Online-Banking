@@ -54,7 +54,7 @@ public class AccountServices {
         a.setAccountId(accountslist.size() + 1);
         accountslist.add(a);
         System.out.println("201 - resource created with path: /account/" + String.valueOf(a.getAccountId()));
-        System.out.println("Updated Customer:" + a.printAccount());
+        System.out.println("Created Customer:" + a.printAccount());
         return a;
     }
 }

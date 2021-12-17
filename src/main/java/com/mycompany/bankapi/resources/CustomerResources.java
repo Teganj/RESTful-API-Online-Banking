@@ -27,11 +27,12 @@ public class CustomerResources {
 
     CustomerServices customerServices = new CustomerServices();
 
-    @GET
+        @GET
     @Path("/{customerId}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public Customer getCustomerJSON(@PathParam("customerId") int customer_id, Customer c) {
-        return customerServices.getCustomer(customer_id, c);
+        public Customer getCustomer(
+            @PathParam("customerId") int customer_id){
+        System.out.println("getAccountByID:" + customer_id);
+        return customerServices.getCustomerInfo(customer_id);
     }
 
     @GET

@@ -55,7 +55,7 @@ public class TransactionResources {
             @QueryParam("card_debited") String card_debited,
             @QueryParam("amount") int amount) {
         TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.transerFromAccount(account_id, customer_id, card_debited, amount);
+        return transactionServices.transferFromAccount(account_id, customer_id, card_debited, amount);
     }
 
     @GET
