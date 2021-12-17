@@ -1,10 +1,7 @@
 package com.mycompany.bankapi.resources;
 
 import com.mycompany.bankapi.models.Account;
-import com.mycompany.bankapi.models.Customer;
-import com.mycompany.bankapi.models.Transaction;
 import com.mycompany.bankapi.services.AccountServices;
-import com.mycompany.bankapi.services.TransactionServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
