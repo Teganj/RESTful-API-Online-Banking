@@ -48,7 +48,7 @@ public class TransactionResources {
     }
 
     @GET
-    @Path("/{transfer}")
+    @Path("/transfer")
     public Transaction transferFunds(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
