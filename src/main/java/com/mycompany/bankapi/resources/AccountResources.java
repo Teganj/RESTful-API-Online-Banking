@@ -13,6 +13,8 @@ import javax.ws.rs.core.MediaType;
 
 /*
  * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
+ * @author Eugene Omondi x18425924
  */
 @Path("/customer/{customer_id}/account")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -44,5 +46,4 @@ public class AccountResources {
         return accountServices.createAccount(a, a_id);
     }
 
-    
 }

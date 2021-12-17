@@ -21,8 +21,7 @@ import javax.ws.rs.QueryParam;
 public class TransactionResources {
 
     private TransactionServices transactionServices = new TransactionServices();
-    
-    //Tegan
+
     @GET
     @Path("/all")
     public List<Transaction> addToTransactions(
@@ -38,7 +37,6 @@ public class TransactionResources {
         return transactionServices.getAllTransactions();
     }
 
-    //Tegan
     @GET
     @Path("/withdraw")
     public Transaction withdrawFunds(
@@ -49,7 +47,6 @@ public class TransactionResources {
                 amount);
     }
 
-    //Eugene
     @GET
     @Path("/{transfer}")
     public Transaction transferFunds(
@@ -61,15 +58,14 @@ public class TransactionResources {
         return transactionServices.transerFromAccount(account_id, customer_id, card_debited, amount);
     }
 
-    //Gavin
     @GET
     @Path("/lodgement")
 
     public Transaction LodgeFunds(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
-            @QueryParam("amount") int amount){ 
+            @QueryParam("amount") int amount) {
         return transactionServices.lodgeToAccount(account_id, customer_id, amount);
-        
+
     }
 }

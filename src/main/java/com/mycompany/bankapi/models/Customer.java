@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
 public class Customer {
@@ -15,12 +17,12 @@ public class Customer {
     private String customer_password;
     private String customer_cpassword;
     private List<Account> accounts = new ArrayList<>();
-    
+
     public Customer() {
     }
 
-    public Customer (int customer_id, String customer_name, String customer_address, String customer_email, String customer_password,  String customer_cpassword, List<Account> accounts) {
-        this.customer_id = customer_id;        
+    public Customer(int customer_id, String customer_name, String customer_address, String customer_email, String customer_password, String customer_cpassword, List<Account> accounts) {
+        this.customer_id = customer_id;
         this.customer_name = customer_name;
         this.customer_address = customer_address;
         this.customer_email = customer_email;
@@ -29,7 +31,7 @@ public class Customer {
         this.accounts = accounts;
     }
 
-     public int getCustomerId() {
+    public int getCustomerId() {
         return customer_id;
     }
 
@@ -90,9 +92,8 @@ public class Customer {
         System.out.println("add a new account to Customer");
     }
 
-
     public String printCustomer() {
-        return "BankAccount{" + "customer_id=" + customer_id + ", customer_name=" + customer_name + ", customer_address=" + customer_address + ", customer_email=" + customer_email + ", customer_password=" + customer_password  + ",, customer_cpassword=" + customer_cpassword + '}';
+        return "BankAccount{" + "customer_id=" + customer_id + ", customer_name=" + customer_name + ", customer_address=" + customer_address + ", customer_email=" + customer_email + ", customer_password=" + customer_password + ",, customer_cpassword=" + customer_cpassword + '}';
     }
 
 }

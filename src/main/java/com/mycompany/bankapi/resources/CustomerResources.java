@@ -11,6 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 /*
+ * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
 @Path("/customer")
@@ -28,7 +30,6 @@ public class CustomerResources {
         return customerServices.getCustomer(customer_id);
     }
 
-
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -36,12 +37,4 @@ public class CustomerResources {
     public Customer postCustomer(Customer c) {
         return customerServices.createCustomer(c);
     }
-
-    @Path("/{customer_id}/account")
-    public AccountResources getAccountResources() {
-        System.out.println("Getting Accounts subresoruces...");
-        return new AccountResources();
-    }
-
 }
-

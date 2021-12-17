@@ -1,7 +1,6 @@
 package com.mycompany.bankapi.models;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /*
@@ -94,7 +93,7 @@ public class Transaction {
     public void setAmount(double amount) {
         this.amount = amount;
     }
-    
+
     public String getDate() {
         return date;
     }
@@ -102,7 +101,6 @@ public class Transaction {
     public void setDate(String date) {
         this.date = date;
     }
-
 
     public List<Account> getAllAccounts() {
         return accounts;

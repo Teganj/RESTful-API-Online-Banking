@@ -1,8 +1,9 @@
 package com.mycompany.bankapi.models;
 
-
 /*
  * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
+ * @author Eugene Omondi x18425924
  */
 public class Account {
 

@@ -2,13 +2,15 @@ package com.mycompany.bankapi.services;
 
 import com.mycompany.bankapi.database.CustomerDatabase;
 import com.mycompany.bankapi.models.Customer;
-import java.util.ArrayList;
 import java.util.List;
 
 /*
+ * @author Tegan Jennings x18303941
+ * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
 public class CustomerServices {
+
     CustomerDatabase db = new CustomerDatabase();
     private List<Customer> list = db.getCustomerDB();
 
