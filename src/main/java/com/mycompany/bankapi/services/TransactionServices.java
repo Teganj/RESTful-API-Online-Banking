@@ -59,9 +59,10 @@ public class TransactionServices {
                 "4319", "1930", newBalance, "28-05-2022");
 
         transactionServices.addTransaction(transaction);
-
+        
+        transactionlist.add(transaction);
         return transaction;
-
+        
     }
 
     public Transaction getTransaction(int transaction_id) {
@@ -80,13 +81,6 @@ public class TransactionServices {
         return l;
     }
 
-    public Transaction calculateWithdrawal(int transaction_id, double amount, Transaction t) {
-        t.setTransaction_id(transactionlist.size() + 1);
-        transactionlist.add(t);
-        System.out.println("201 - transaction created with path: /transaction/" + String.valueOf(t.getTransaction_id()));
-        System.out.println("New Transaction:" + t.printTransaction());
-        return t;
-    }
 
 }
 
