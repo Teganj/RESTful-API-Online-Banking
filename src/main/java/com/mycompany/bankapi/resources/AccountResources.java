@@ -2,7 +2,9 @@ package com.mycompany.bankapi.resources;
 
 import com.mycompany.bankapi.models.Account;
 import com.mycompany.bankapi.models.Customer;
+import com.mycompany.bankapi.models.Transaction;
 import com.mycompany.bankapi.services.AccountServices;
+import com.mycompany.bankapi.services.TransactionServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,6 +12,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 /*
@@ -32,9 +35,12 @@ public class AccountResources {
 
     @GET
     @Path("/all")
-    public Customer getAccounts(@PathParam("customer_id") int c_id) {
-        System.out.println("getAllAccountsforCustomer..." + c_id);
-        return accountServices.getAllAccountsByCustomerID(c_id);
+    public List<Account> getAllAccounts(
+            @QueryParam("account_id") int account_id,
+            @QueryParam("customer_id") int customer_id,
+            @QueryParam("account_type") String account_type){
+        AccountServices accountServices = new AccountServices();
+        return accountServices.getAllAccounts();
     }
 
     @POST
@@ -44,6 +50,4 @@ public class AccountResources {
     public Account addAccount(@PathParam("customer_id") int a_id, Account a) {
         return accountServices.createAccount(a, a_id);
     }
-
-    
 }

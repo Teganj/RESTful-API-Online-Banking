@@ -26,6 +26,16 @@ public class AccountServices {
         return customer;
     }
 
+    public Account getAccount(int AccountID) {
+        Account account = null;
+        for (int i = 0; i < accountslist.size(); i++) {
+            if (accountslist.get(i).getAccountId() == AccountID) {
+                account = accountslist.get(i);
+            }
+        }
+        return account;
+    }
+    
     public Account getAccountByID(int AccountID, int CustomerID) {
         Account account = null;
         for (int i = 0; i < accountslist.size(); i++) {
@@ -42,12 +52,12 @@ public class AccountServices {
 
     public Account createAccount(Account a, int a_id) {
 
-        Customer newCustomer = customerslist.get(a_id);
+        Customer newCustomer = customerslist.get(a_id-1);
         a.setAccountId(newCustomer.getAccounts().size() + 1);
         newCustomer.addAccountToCustomer(a);
 
-        System.out.println("201 - resource created with path: /customer/{customer_id}/" 
-                + String.valueOf(newCustomer.getCustomerId()) + "/account/" 
+        System.out.println("201 - resource created with path: /customer/{customer_id}/"
+                + String.valueOf(newCustomer.getCustomerId()) + "/account/"
                 + String.valueOf(a.getAccountId()));
         System.out.println("Updated Account:" + a.printAccount());
         return a;

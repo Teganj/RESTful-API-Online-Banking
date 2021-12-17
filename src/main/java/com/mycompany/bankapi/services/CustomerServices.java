@@ -1,6 +1,7 @@
 package com.mycompany.bankapi.services;
 
 import com.mycompany.bankapi.database.CustomerDatabase;
+import com.mycompany.bankapi.models.Account;
 import com.mycompany.bankapi.models.Customer;
 import java.util.List;
 
@@ -12,21 +13,27 @@ import java.util.List;
 public class CustomerServices {
 
     CustomerDatabase db = new CustomerDatabase();
-    private List<Customer> list = db.getCustomerDB();
+    private List<Customer> customerslist = db.getCustomerDB();
 
     public List<Customer> getAllCustomers() {
-        return list;
+        return customerslist;
     }
 
-    public Customer getCustomer(int customer_id) {
-        return list.get(customer_id - 1);
+   
+        public Customer getCustomer(Customer customer) {
+        customer.setCustomerId(customerslist.size() + 1);
+        customerslist.add(customer);
+        System.out.println("201 - resource created with path: /customer/" + String.valueOf(customer.getCustomerId()));
+        System.out.println("Updated Customer:" + customer.printCustomer());
+        return customer;
     }
 
     public Customer createCustomer(Customer c) {
-        c.setCustomerId(list.size() + 1);
-        list.add(c);
+        c.setCustomerId(customerslist.size() + 1);
+        customerslist.add(c);
         System.out.println("201 - resource created with path: /customers/" + String.valueOf(c.getCustomerId()));
         System.out.println("Updated Customer:" + c.printCustomer());
         return c;
     }
+
 }
