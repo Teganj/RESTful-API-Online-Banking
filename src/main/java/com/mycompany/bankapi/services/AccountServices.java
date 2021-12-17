@@ -19,7 +19,13 @@ public class AccountServices {
     }
 
     public Account getAccountByID(int AccountID, int CustomerID) {
-        return customerslist.get(AccountID - 1).getAccounts().get(CustomerID - 1);
+        Account account = null;
+        for (int i = 0; i < accountslist.size(); i++) {
+            if (accountslist.get(i).getAccountId() == AccountID) {
+                account = accountslist.get(i);
+            }
+        }
+        return account;
     }
 
     public List<Account> getAllAccounts() {

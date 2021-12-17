@@ -1,6 +1,7 @@
 package com.mycompany.bankapi.models;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /*
@@ -11,30 +12,32 @@ import java.util.List;
 public class Transaction {
 
     private List<Account> accounts = new ArrayList<>();
-    private int customer_id;
+    private int transaction_id;
     private int account_id;
     private String account_type;
-    private int transaction_id;
     private String transaction_type;
     private String card_credited;
     private String card_debited;
-    private int amount;
+    private double amount;
+    private String date;
 
     public Transaction() {
 
     }
 
-    public Transaction(int customer_id, int account_id, String account_type, int transaction_id, String transaction_type, String card_credited, String card_debited, int amount) {
-        this.customer_id = customer_id;
+    public Transaction(int transaction_id, int account_id, String account_type,
+            String transaction_type, String card_credited,
+            String card_debited, double amount, String date) {
+
+        this.transaction_id = transaction_id;
         this.account_id = account_id;
         this.account_type = account_type;
-        this.transaction_id = transaction_id;
         this.transaction_type = transaction_type;
         this.card_credited = card_credited;
         this.card_debited = card_debited;
         this.amount = amount;
+        this.date = date;
     }
-   
 
     public int getTransaction_id() {
         return transaction_id;
@@ -42,14 +45,6 @@ public class Transaction {
 
     public void setTransaction_id(int transaction_id) {
         this.transaction_id = transaction_id;
-    }
-
-    public int getCustomer_id() {
-        return customer_id;
-    }
-
-    public void setCustomer_id(int customer_id) {
-        this.customer_id = customer_id;
     }
 
     public int getAccount_id() {
@@ -92,13 +87,22 @@ public class Transaction {
         this.card_debited = card_debited;
     }
 
-    public int getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
+    
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 
     public List<Account> getAllAccounts() {
         return accounts;
@@ -114,6 +118,6 @@ public class Transaction {
     }
 
     public String printTransaction() {
-        return "Bank Transaction{" + "Customer ID=" + customer_id + ", Account ID=" + account_id + ", Transaction ID=" + transaction_id + ", Card Credited=" + card_credited + ", Card Debited=" + card_debited + ", amount=" + amount + '}';
+        return "Bank Transaction{" + ", Account ID=" + account_id + ", Transaction ID=" + transaction_id + ", Card Credited=" + card_credited + ", Card Debited=" + card_debited + ", amount=" + amount + '}';
     }
 }

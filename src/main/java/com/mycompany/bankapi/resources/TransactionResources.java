@@ -17,30 +17,40 @@ import javax.ws.rs.core.Response;
  * @author Gavin Corr x18382836
  * @author Eugene Omondi x18425924
  */
-@Path("/customer/{customer_id}/account/{accounts_id}/transaction")
+@Path("/transaction")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class TransactionResources {
 
     private TransactionServices transactionServices = new TransactionServices();
 
+    
+    //Tegan
+//    @GET
+//    @Path("/all")
+//    public Transaction addToTransactions(
+//            @QueryParam("account_id") int account_id,
+//            @QueryParam("amount") double amount) {
+//        TransactionServices transactionServices = new TransactionServices();
+//        return transactionServices.withdrawFromAccount(account_id, amount);
+//    }
+
+    
     //Tegan
     @GET
-    @Path("/{withdraw}")
+    @Path("/withdraw")
     public Transaction withdrawFunds(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
-            @QueryParam("card_credited") String card_credited,
-            @QueryParam("card_debited") String card_debited,
-            @QueryParam("amount") int amount) {
-        TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.withdrawFromAccount(account_id, customer_id, card_credited, card_debited, amount);
+            @QueryParam("amount") double amount) {
+        return transactionServices.withdrawFromAccount(account_id, customer_id, 
+                amount);
     }
 
     @POST
     @Path("/withdraw/create")
     public Response createtWithdrawFunds(
-            @QueryParam("From Account ID: ") int account_id,
+            @QueryParam("account_id") int account_id,
             @QueryParam("From Customer ID: ") int customer_id,
             @QueryParam("To Card: ") String card_credited,
             @QueryParam("From Card: ") String card_debited,
@@ -53,7 +63,7 @@ public class TransactionResources {
                 + amount;
         return Response.status(200).entity(output).build();
     }
-
+/*
     //Eugene
     @GET
     @Path("/{transfer}")
@@ -108,4 +118,5 @@ public class TransactionResources {
                 + amount;
         return Response.status(200).entity(output).build();
     }
+*/
 }
