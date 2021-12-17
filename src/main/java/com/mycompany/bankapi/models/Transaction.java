@@ -1,5 +1,8 @@
 package com.mycompany.bankapi.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /*
  * @author Tegan Jennings x18303941
  * @author Gavin Corr x18382836
@@ -7,6 +10,7 @@ package com.mycompany.bankapi.models;
  */
 public class Transaction {
 
+    private List<Account> accounts = new ArrayList<>();
     private int customer_id;
     private int account_id;
     private String account_type;
@@ -30,6 +34,7 @@ public class Transaction {
         this.card_debited = card_debited;
         this.amount = amount;
     }
+   
 
     public int getTransaction_id() {
         return transaction_id;
@@ -93,6 +98,19 @@ public class Transaction {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }
+
+    public List<Account> getAllAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Account> accounts) {
+        this.accounts = accounts;
+    }
+
+    public void addAccountToCustomer(Account account) {
+        (this.accounts).add(account);
+        System.out.println("add a new account to Customer");
     }
 
     public String printTransaction() {

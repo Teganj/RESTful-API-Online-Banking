@@ -1,6 +1,7 @@
 package com.mycompany.bankapi.services;
 
 import com.mycompany.bankapi.database.TransactionDatabase;
+import com.mycompany.bankapi.models.Account;
 import com.mycompany.bankapi.models.Transaction;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,25 +20,23 @@ public class TransactionServices {
         return transactionlist.get(account_id - 1);
     }
 
-    
-    
-   // Eugene
-     public Transaction transerFromAccount(int account_id, int customer_id, String card_debited, int amount)
-     return transactionlist.get(account_id - 1);
+    // Eugene
+    public Transaction transerFromAccount(int account_id, int customer_id, String card_debited, int amount) {
+        return transactionlist.get(account_id - 1);
     }
-    
 
     //Gavin
-
-public Transaction LodgeToAccount(int account_id, int customer_id, double amount, String card_debited) {
+    public Transaction LodgeToAccount(int account_id, int customer_id, double amount, String card_debited) {
         return transactionlist.get(account_id - 1);
-     }
+    }
+
     // public Transaction LodgeToAccount(int account_id, int customer_id, double amount) {
     //    Transaction transactionWithdrawal;
     //    transactionWithdrawal = new TransactionServices(1, 123, 40.0);
     //    transService.addToTransaction(transactionWithdrawal);
     //     return transactionWithdrawal;
     //  }
+    
     public Transaction getTransaction(int transaction_id) {
         return transactionlist.get(transaction_id - 1);
     }
