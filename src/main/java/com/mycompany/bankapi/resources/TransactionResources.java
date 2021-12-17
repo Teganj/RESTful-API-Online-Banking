@@ -2,6 +2,7 @@ package com.mycompany.bankapi.resources;
 
 import com.mycompany.bankapi.models.Transaction;
 import com.mycompany.bankapi.services.TransactionServices;
+import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -20,14 +21,21 @@ import javax.ws.rs.QueryParam;
 public class TransactionResources {
 
     private TransactionServices transactionServices = new TransactionServices();
-
+    
+    //Tegan
     @GET
     @Path("/all")
-    public Transaction addToTransactions(
+    public List<Transaction> addToTransactions(
+            @QueryParam("transaction_id") int transaction_id,
             @QueryParam("account_id") int account_id,
-            @QueryParam("amount") double amount) {
+            @QueryParam("account_type") String account_type,
+            @QueryParam("transaction_type") String transaction_type,
+            @QueryParam("card_credited") String card_credited,
+            @QueryParam("card_debited") String card_debited,
+            @QueryParam("amount") double amount,
+            @QueryParam("date") String date) {
         TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.withdrawFromAccount(account_id, amount);
+        return transactionServices.getAllTransactions();
     }
 
     //Tegan
@@ -55,14 +63,13 @@ public class TransactionResources {
 
     //Gavin
     @GET
-    @Path("/{lodgement}")
+    @Path("/lodgement")
 
     public Transaction LodgeFunds(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
-            @QueryParam("card_debited") String card_debited,
-            @QueryParam("amount") int amount) {
-        TransactionServices transactionServices = new TransactionServices();
-        return transactionServices.LodgeToAccount(account_id, customer_id, amount, card_debited);
+            @QueryParam("amount") int amount){ 
+        return transactionServices.lodgeToAccount(account_id, customer_id, amount);
+        
     }
 }

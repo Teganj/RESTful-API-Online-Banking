@@ -27,19 +27,4 @@ public class CustomerServices {
         System.out.println("Updated Customer:" + c.printCustomer());
         return c;
     }
-
-    public List<Customer> getSearchCustomer(String account, String customer) {
-        List<Customer> matcheslist = new ArrayList<>();
-
-        for (Customer q : getAllCustomers()) {
-            if ((account == null || q.getCustomer().equals(customer))
-                    && (customer == null || q.getCustomer().equals(customer))) {
-                matcheslist.add(q);
-            }
-        }
-        return matcheslist;
-    }
-
-
-    
 }

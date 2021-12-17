@@ -17,7 +17,7 @@ public class TransactionServices {
     private List<Account> accountlist = new AccountDatabase().getAccountDB();
     private Transaction transaction = new Transaction();
 
-    //Tegan
+    // Tegan
     public Transaction withdrawFromAccount(int account_id, int customer_id,
             double amount) {
         TransactionServices transactionServices = new TransactionServices();
@@ -28,8 +28,8 @@ public class TransactionServices {
         double accountBalance = account.getCurrentBalance();
         double newBalance = accountBalance - amount;
         account.setCurrentBalance(newBalance);
-        
-        transaction = new Transaction(1, account_id, "Credit", "Withdraw", 
+
+        transaction = new Transaction(1, account_id, "Credit", "Withdraw",
                 "4319", "1930", newBalance, "28-05-2022");
 
         transactionServices.addTransaction(transaction);
@@ -38,18 +38,34 @@ public class TransactionServices {
 
     }
 
-// Eugene
+    // Eugene
     public Transaction transerFromAccount(int account_id, int customer_id, String card_debited, int amount) {
         return transactionlist.get(account_id - 1);
     }
 
     //Gavin
-    public Transaction LodgeToAccount(int account_id, int customer_id, double amount, String card_debited) {
-        return transactionlist.get(account_id - 1);
+    public Transaction lodgeToAccount(int account_id, int customer_id,
+            double amount) {
+        TransactionServices transactionServices = new TransactionServices();
+        AccountServices accountServices = new AccountServices();
+        Transaction transaction;
+
+        Account account = accountServices.getAccountByID(account_id, customer_id);
+        double accountBalance = account.getCurrentBalance();
+        double newBalance = accountBalance + amount;
+        account.setCurrentBalance(newBalance);
+
+        transaction = new Transaction(1, account_id, "Debit", "Lodge",
+                "4319", "1930", newBalance, "28-05-2022");
+
+        transactionServices.addTransaction(transaction);
+
+        return transaction;
+
     }
 
     public Transaction getTransaction(int transaction_id) {
-        return transactionlist.get(transaction_id - 1);
+        return transactionlist.get(transaction_id);
     }
 
     public List<Transaction> getAllTransactions() {
@@ -63,7 +79,7 @@ public class TransactionServices {
         System.out.println("New Transaction:" + l.printTransaction());
         return l;
     }
-    
+
     public Transaction calculateWithdrawal(int transaction_id, double amount, Transaction t) {
         t.setTransaction_id(transactionlist.size() + 1);
         transactionlist.add(t);
@@ -73,3 +89,4 @@ public class TransactionServices {
     }
 
 }
+

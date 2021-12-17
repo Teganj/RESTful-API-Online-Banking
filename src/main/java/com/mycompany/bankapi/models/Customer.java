@@ -8,7 +8,6 @@ import java.util.List;
  */
 public class Customer {
 
-    private String customer;
     private int customer_id;
     private String customer_name;
     private String customer_address;
@@ -17,13 +16,10 @@ public class Customer {
     private String customer_cpassword;
     private List<Account> accounts = new ArrayList<>();
     
-    
-
     public Customer() {
     }
 
-    public Customer (String customer, int customer_id, String customer_name, String customer_address, String customer_email, String customer_password,  String customer_cpassword, List<Account> accounts) {
-        this.customer = customer;
+    public Customer (int customer_id, String customer_name, String customer_address, String customer_email, String customer_password,  String customer_cpassword, List<Account> accounts) {
         this.customer_id = customer_id;        
         this.customer_name = customer_name;
         this.customer_address = customer_address;
@@ -33,14 +29,6 @@ public class Customer {
         this.accounts = accounts;
     }
 
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
-    }
-    
      public int getCustomerId() {
         return customer_id;
     }

@@ -24,14 +24,6 @@ public class CustomerResources {
     CustomerServices customerServices = new CustomerServices();
 
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Customer> getFilteredCustomers(@QueryParam("customer") String customer, @QueryParam("account") String account) {
-        if ((customer != null) || (account != null)) {
-            return customerServices.getSearchCustomer(customer, account);
-        }
-        return customerServices.getAllCustomers();
-    }
-    @GET
     @Path("/{customerId}")
     @Produces(MediaType.APPLICATION_JSON)
     public Customer getCustomerJSON(@PathParam("customerId") int customer_id) {

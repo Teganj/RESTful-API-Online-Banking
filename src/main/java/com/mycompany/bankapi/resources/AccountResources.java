@@ -1,6 +1,7 @@
 package com.mycompany.bankapi.resources;
 
 import com.mycompany.bankapi.models.Account;
+import com.mycompany.bankapi.models.Customer;
 import com.mycompany.bankapi.services.AccountServices;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -31,7 +32,7 @@ public class AccountResources {
 
     @GET
     @Path("/all")
-    public List<Account> getAccounts(@PathParam("customer_id") int c_id) {
+    public Customer getAccounts(@PathParam("customer_id") int c_id) {
         System.out.println("getAllAccountsforCustomer..." + c_id);
         return accountServices.getAllAccountsByCustomerID(c_id);
     }

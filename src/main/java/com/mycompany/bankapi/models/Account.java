@@ -1,14 +1,11 @@
 package com.mycompany.bankapi.models;
 
-import java.util.List;
 
 /*
  * @author Tegan Jennings x18303941
  */
 public class Account {
 
-    private String account;
-    private String customer;
     private int account_id;
     private int customer_id;
     private String account_type;
@@ -19,31 +16,13 @@ public class Account {
     public Account() {
     }
 
-    public Account(String account, String customer, int account_id, int customer_id, String account_type, String sort_code, String account_number, double current_balance) {
-        this.account = account;
-        this.customer = customer;
+    public Account(int account_id, int customer_id, String account_type, String sort_code, String account_number, double current_balance) {
         this.account_id = account_id;
         this.customer_id = customer_id;
         this.account_type = account_type;
         this.sort_code = sort_code;
         this.account_number = account_number;
         this.current_balance = current_balance;
-    }
-
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
-    public String getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(String customer) {
-        this.customer = customer;
     }
 
     public int getAccountId() {
