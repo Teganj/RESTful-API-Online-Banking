@@ -1,10 +1,8 @@
 package com.mycompany.bankapi.services;
 
 import com.mycompany.bankapi.database.AccountDatabase;
-import com.mycompany.bankapi.database.CustomerDatabase;
 import com.mycompany.bankapi.database.TransactionDatabase;
 import com.mycompany.bankapi.models.Account;
-import com.mycompany.bankapi.models.Customer;
 import com.mycompany.bankapi.models.Transaction;
 import java.util.List;
 

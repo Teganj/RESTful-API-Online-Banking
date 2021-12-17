@@ -15,7 +15,7 @@ public class AccountServices {
     private List<Customer> customerslist = new CustomerDatabase().getCustomerDB();
 
     public List<Account> getAllAccountsByCustomerID(int CustomerID) {
-        return customerslist.get(CustomerID - 1).getAccounts();
+        return customerslist.get(CustomerID).getAccounts();
     }
 
     public Account getAccountByID(int AccountID, int CustomerID) {
