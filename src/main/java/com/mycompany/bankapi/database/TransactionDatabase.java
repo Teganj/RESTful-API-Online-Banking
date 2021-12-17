@@ -17,12 +17,12 @@ public class TransactionDatabase {
     public TransactionDatabase() {
         if (init) {
 
-            Transaction lod1 = new Transaction(001, 111, "Credit", "Withdrawal", "", "John Smith", 20.0, "17/12/2021");
-            Transaction lod2 = new Transaction(002, 112, "Debit", "Lodgement", "", "James Wright", 20.0, "17/12/2021");
-            Transaction lod3 = new Transaction(003, 113, "Credit", "Transfer", "", "Sam Smith", 50.0, "17/12/2021");
-            Transaction lod4 = new Transaction(004, 114, "Debit", "Withdrawal", "", "Rob Tierny", 60.0, "17/12/2021");
-            Transaction lod5 = new Transaction(005, 115, "Credit", "Lodgement", "", "Hannah Carpenter", 20.0, "17/12/2021");
-            Transaction lod6 = new Transaction(006, 116, "Debit", "Lodgement", "", "Sally Jones", 100.0, "17/12/2021");
+            Transaction lod1 = new Transaction(001, 111, "Credit", "Withdrawal", "1", "John Smith", 20.0, "17/12/2021");
+            Transaction lod2 = new Transaction(002, 112, "Debit", "Lodgement", "2", "James Wright", 20.0, "17/12/2021");
+            Transaction lod3 = new Transaction(003, 113, "Credit", "Transfer", "3", "Sam Smith", 50.0, "17/12/2021");
+            Transaction lod4 = new Transaction(004, 114, "Debit", "Withdrawal", "4", "Rob Tierny", 60.0, "17/12/2021");
+            Transaction lod5 = new Transaction(005, 115, "Credit", "Lodgement", "5", "Hannah Carpenter", 20.0, "17/12/2021");
+            Transaction lod6 = new Transaction(006, 116, "Debit", "Lodgement", "6", "Sally Jones", 100.0, "17/12/2021");
 
             transactionDB.add(lod1);
             transactionDB.add(lod2);

@@ -17,7 +17,6 @@ public class TransactionServices {
     private List<Account> accountlist = new AccountDatabase().getAccountDB();
     private Transaction transaction = new Transaction();
 
-    // Tegan
     public Transaction withdrawFromAccount(int account_id, int customer_id,
             double amount) {
         TransactionServices transactionServices = new TransactionServices();
@@ -38,12 +37,26 @@ public class TransactionServices {
 
     }
 
-    // Eugene
-    public Transaction transerFromAccount(int account_id, int customer_id, String card_debited, int amount) {
-        return transactionlist.get(account_id - 1);
+    public Transaction transferFromAccount(int account_id, int customer_id,
+            double amount) {
+        TransactionServices transactionServices = new TransactionServices();
+        AccountServices accountServices = new AccountServices();
+        Transaction transaction;
+
+        Account account = accountServices.getAccountByID(account_id, customer_id);
+        double accountBalance = account.getCurrentBalance();
+        double newBalance = accountBalance - amount;
+
+        account.setCurrentBalance(newBalance);
+
+        transaction = new Transaction(1, account_id, "Credit", "Transfer",
+                "4319", "1930", newBalance, "28-05-2022");
+
+        transactionServices.addTransaction(transaction);
+
+        return transaction;
     }
 
-    //Gavin
     public Transaction lodgeToAccount(int account_id, int customer_id,
             double amount) {
         TransactionServices transactionServices = new TransactionServices();
@@ -59,10 +72,10 @@ public class TransactionServices {
                 "4319", "1930", newBalance, "28-05-2022");
 
         transactionServices.addTransaction(transaction);
-        
+
         transactionlist.add(transaction);
         return transaction;
-        
+
     }
 
     public Transaction getTransaction(int transaction_id) {
@@ -81,6 +94,4 @@ public class TransactionServices {
         return l;
     }
 
-
 }
-

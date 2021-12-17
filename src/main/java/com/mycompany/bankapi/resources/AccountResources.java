@@ -28,9 +28,10 @@ public class AccountResources {
 
     @GET
     @Path("/{account_id}")
-    public Account getAccount(@PathParam("account_id") int a_id, @PathParam("customer_id") int c_id) {
-        System.out.println("getAccountByID..." + a_id + " for CustomerID " + c_id);
-        return accountServices.getAccountByID(c_id, a_id);
+    public Account getAccount(
+            @PathParam("account_id") int a_id){
+        System.out.println("getAccountByID:" + a_id);
+        return accountServices.getAccount(a_id);
     }
 
     @GET
@@ -38,7 +39,7 @@ public class AccountResources {
     public List<Account> getAllAccounts(
             @QueryParam("account_id") int account_id,
             @QueryParam("customer_id") int customer_id,
-            @QueryParam("account_type") String account_type){
+            @QueryParam("account_type") String account_type) {
         AccountServices accountServices = new AccountServices();
         return accountServices.getAllAccounts();
     }
@@ -47,7 +48,7 @@ public class AccountResources {
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account addAccount(@PathParam("customer_id") int a_id, Account a) {
-        return accountServices.createAccount(a, a_id);
+    public Account addAccount(Account a) {
+        return accountServices.createAccount(a);
     }
 }

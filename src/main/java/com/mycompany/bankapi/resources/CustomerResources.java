@@ -34,20 +34,20 @@ public class CustomerResources {
         return customerServices.getCustomer(customer_id, c);
     }
 
-    @POST
-    @Path("/create")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public Customer postCustomer(Customer c) {
-        return customerServices.createCustomer(c);
-    }
-
     @GET
     @Path("/all")
     public List<Customer> getAllCustomers(
             @QueryParam("customer_id") int customer_id) {
         AccountServices accountServices = new AccountServices();
         return customerServices.getAllCustomers();
+    }
+
+    @POST
+    @Path("/create")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Customer postCustomer(Customer c) {
+        return customerServices.createCustomer(c);
     }
 
 }

@@ -71,7 +71,7 @@ public class Transaction {
     }
 
     public String getAccountCredited() {
-        return transaction_type;
+        return card_credited;
     }
 
     public void setAccountCredited(String card_credited) {
@@ -79,7 +79,7 @@ public class Transaction {
     }
 
     public String getAccountDebited() {
-        return transaction_type;
+        return card_debited;
     }
 
     public void setAccountDebited(String card_debited) {
