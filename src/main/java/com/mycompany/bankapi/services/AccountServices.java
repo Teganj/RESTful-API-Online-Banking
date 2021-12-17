@@ -40,12 +40,14 @@ public class AccountServices {
 
     public Account createAccount(Account a, int a_id) {
 
-        Customer newCustomer = customerslist.get(a_id - 1);
+        Customer newCustomer = customerslist.get(a_id);
         a.setAccountId(newCustomer.getAccounts().size() + 1);
         newCustomer.addAccountToCustomer(a);
 
-        System.out.println("201 - resource created with path: /customers/" + String.valueOf(newCustomer.getCustomerId()) + "/comments/" + String.valueOf(a.getAccountId()));
-        System.out.println("Updated Message:" + a.printAccount());
+        System.out.println("201 - resource created with path: /customer/{customer_id}/" 
+                + String.valueOf(newCustomer.getCustomerId()) + "/account/" 
+                + String.valueOf(a.getAccountId()));
+        System.out.println("Updated Account:" + a.printAccount());
         return a;
     }
 }

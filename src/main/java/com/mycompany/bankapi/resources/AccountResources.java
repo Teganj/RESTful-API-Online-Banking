@@ -3,7 +3,6 @@ package com.mycompany.bankapi.resources;
 import com.mycompany.bankapi.models.Account;
 import com.mycompany.bankapi.models.Customer;
 import com.mycompany.bankapi.services.AccountServices;
-import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -41,7 +40,7 @@ public class AccountResources {
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Account addAccount(@PathParam("customer_id") int a_id, Account a) {
+    public Account addAccount(@PathParam("customer_id") Account a, int a_id) {
         return accountServices.createAccount(a, a_id);
     }
 
